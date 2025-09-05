@@ -18,7 +18,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  // Lås/unlock scroll när menyn är öppen
   useEffect(() => {
     const root = document.documentElement;
     root.style.overflow = open ? "hidden" : "";
@@ -29,12 +28,11 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top bar */}
       <header className="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
         <nav className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/kylkonsulten.png" // måste ligga i /public/kylkonsulten.png
+              src="/kylkonsulten.png"
               alt="Kylkonsulten i Norr AB"
               width={32}
               height={32}
@@ -46,7 +44,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop nav */}
           <ul className="hidden sm:flex items-center gap-5">
             {links.map((item) => (
               <li key={item.href}>
@@ -62,7 +59,6 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Mobile burger */}
           <button
             className="sm:hidden grid place-items-center size-10 rounded-xl border border-gray-300 hover:bg-gray-50"
             onClick={() => setOpen(true)}
@@ -75,19 +71,14 @@ export default function Navbar() {
         </nav>
       </header>
 
-      {/* Mobile full-screen menu */}
       {open && (
         <div id="mobile-menu" className="fixed inset-0 z-[60]">
-          {/* Dimma bakom */}
           <div
             className="absolute inset-0 bg-black/40"
             onClick={() => setOpen(false)}
             aria-hidden="true"
           />
-
-          {/* Själva menyn */}
           <div className="absolute inset-0 bg-white flex flex-col">
-            {/* Topp – titel + stäng uppe till höger (luft emellan) */}
             <div className="relative mx-auto max-w-6xl w-full px-4 h-16 flex items-center justify-center border-b border-gray-200">
               <span className="font-semibold">Meny</span>
               <button
@@ -102,7 +93,6 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Länkar */}
             <ul className="mx-auto max-w-6xl w-full px-4 py-4 space-y-1 overflow-y-auto">
               {links.map((item) => (
                 <li key={item.href}>
@@ -122,15 +112,14 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* CTA längst ned */}
             <div className="mt-auto mx-auto max-w-6xl w-full px-4 pb-6 pt-2">
-              <a
+              <Link
                 href="/#kontakt"
                 onClick={() => setOpen(false)}
                 className="block text-center rounded-2xl px-5 py-3 bg-blue-600 text-white shadow-md hover:bg-blue-700 active:bg-blue-800"
               >
                 Boka / Skicka förfrågan
-              </a>
+              </Link>
             </div>
           </div>
         </div>

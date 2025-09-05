@@ -1,4 +1,5 @@
-// app/sakerhetsutbildningar/page.tsx
+import Link from "next/link";
+
 export default function SafetyCoursesPage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10">
@@ -30,12 +31,12 @@ export default function SafetyCoursesPage() {
       </div>
 
       <div className="mt-8">
-        <a
+        <Link
           href="/#kontakt"
-          className="inline-block rounded-2xl px-5 py-3 bg-blue-600 text-white shadow-md"
+          className="inline-block rounded-2xl px-5 py-3 bg-blue-600 text-white shadow-md hover:bg-blue-700 active:bg-blue-800"
         >
           Boka / Skicka förfrågan
-        </a>
+        </Link>
       </div>
     </main>
   );
