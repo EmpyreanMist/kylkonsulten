@@ -1,134 +1,102 @@
 "use client";
 import { useState } from "react";
-import { buildMailto } from "../lib/mailto";
 
-export default function ContactFormMailto() {
+export default function ContactFormMailTo() {
   const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    interest: "Examination – Kat 1",
-    message: "",
+    namn: "",
+    telefon: "",
+    epost: "",
+    arende: "Kylexamination",
+    meddelande: "",
   });
 
-  const interests = [
-    "Examination – Kat 1",
-    "Examination – Kat 2",
-    "Preparandkurs – Teori (Kat 1 & 2)",
-    "Preparandkurs – Praktik (Kat 1 & 2)",
-    "Omcertifiering – Kat 1, 2 & V",
-    "Övrigt",
-  ];
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const subject = `Bokningsförfrågan: ${form.interest}`;
-    const body = [
-      `Namn: ${form.name}`,
-      `E-post: ${form.email}`,
-      `Telefon: ${form.phone}`,
-      `Intresse: ${form.interest}`,
+  const subject = encodeURIComponent(
+    `[${form.arende}] Förfrågan från ${form.namn}`
+  );
+  const body = encodeURIComponent(
+    [
+      `Namn: ${form.namn}`,
+      `Telefon: ${form.telefon}`,
+      `E-post: ${form.epost}`,
+      `Ärende: ${form.arende}`,
       "",
-      "Meddelande:",
-      form.message || "-",
-    ].join("\n");
+      form.meddelande,
+    ].join("\n")
+  );
 
-    const url = buildMailto({ subject, body });
-    window.location.href = url; // öppnar användarens mail-app
-  }
+  const href = `mailto:Kylakonsulteninorr@gmail.com?subject=${subject}&body=${body}`;
+
+  const inputCls =
+    "rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500";
 
   return (
-    <section id="contact" className="py-14">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="rounded-3xl bg-white/70 backdrop-blur-md border border-gray-200 p-8 shadow-md">
-          <h2 className="text-2xl md:text-3xl font-semibold">
-            Bokningsförfrågan
-          </h2>
-          <p className="mt-2 text-gray-600">
-            Skicka en förfrågan så återkommer vi. Formuläret öppnar din mailapp
-            med alla uppgifter ifyllda.
-          </p>
+    <section id="kontakt" className="mx-auto max-w-6xl px-4 py-10">
+      <h2 className="text-2xl font-semibold">Boka / Skicka förfrågan</h2>
 
-          <form
-            onSubmit={handleSubmit}
-            className="mt-6 grid md:grid-cols-2 gap-4"
-          >
-            <div className="flex flex-col">
-              <label className="text-sm text-gray-600 mb-1">Namn</label>
-              <input
-                required
-                className="rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-200"
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="För- och efternamn"
-              />
-            </div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          window.location.href = href;
+        }}
+        className="mt-4 grid gap-4 sm:grid-cols-2"
+      >
+        <input
+          className={inputCls}
+          placeholder="Namn"
+          value={form.namn}
+          onChange={(e) => setForm({ ...form, namn: e.target.value })}
+          required
+          aria-label="Namn"
+        />
+        <input
+          className={inputCls}
+          placeholder="Telefon"
+          value={form.telefon}
+          onChange={(e) => setForm({ ...form, telefon: e.target.value })}
+          aria-label="Telefon"
+        />
+        <input
+          type="email"
+          className={inputCls + " col-span-1"}
+          placeholder="E-post"
+          value={form.epost}
+          onChange={(e) => setForm({ ...form, epost: e.target.value })}
+          required
+          aria-label="E-post"
+        />
 
-            <div className="flex flex-col">
-              <label className="text-sm text-gray-600 mb-1">E-post</label>
-              <input
-                required
-                type="email"
-                className="rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-200"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                placeholder="namn@exempel.se"
-              />
-            </div>
+        <select
+          className={inputCls}
+          value={form.arende}
+          onChange={(e) => setForm({ ...form, arende: e.target.value })}
+          aria-label="Ärende"
+        >
+          <option>Kylexamination</option>
+          <option>Preparandkurs</option>
+          <option>Säkerhetsutbildningar – Heta Arbeten</option>
+          <option>Säkerhetsutbildningar – Lift</option>
+          <option>Säkerhetsutbildningar – Fallskydd</option>
+          <option>Övrigt</option>
+        </select>
 
-            <div className="flex flex-col">
-              <label className="text-sm text-gray-600 mb-1">Telefon</label>
-              <input
-                className="rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-200"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                placeholder="070-..."
-              />
-            </div>
+        <textarea
+          className={inputCls + " sm:col-span-2 min-h-[160px]"}
+          placeholder="Beskriv ditt behov, önskat datum och antal personer."
+          value={form.meddelande}
+          onChange={(e) => setForm({ ...form, meddelande: e.target.value })}
+          aria-label="Meddelande"
+        />
 
-            <div className="flex flex-col">
-              <label className="text-sm text-gray-600 mb-1">
-                Jag är intresserad av
-              </label>
-              <select
-                className="rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-200"
-                value={form.interest}
-                onChange={(e) => setForm({ ...form, interest: e.target.value })}
-              >
-                {interests.map((i) => (
-                  <option key={i}>{i}</option>
-                ))}
-              </select>
-            </div>
-
-            <div className="md:col-span-2 flex flex-col">
-              <label className="text-sm text-gray-600 mb-1">Meddelande</label>
-              <textarea
-                rows={5}
-                className="rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-200"
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                placeholder="Berätta kort om förkunskaper och önskat datum."
-              />
-            </div>
-
-            <div className="md:col-span-2 flex gap-3">
-              <button
-                type="submit"
-                className="rounded-2xl bg-blue-600 text-white px-6 py-3 shadow-sm hover:shadow-md transition"
-              >
-                Skicka förfrågan
-              </button>
-              <a
-                href="tel:+46704745102"
-                className="rounded-2xl border border-gray-200 bg-white px-6 py-3 shadow-sm hover:shadow-md transition"
-              >
-                Ring oss
-              </a>
-            </div>
-          </form>
+        <div className="sm:col-span-2">
+          <button className="rounded-2xl px-5 py-3 bg-blue-600 text-white shadow-md hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            Skicka
+          </button>
         </div>
-      </div>
+      </form>
+
+      <p className="mt-3 text-sm text-gray-600">
+        * Priser anges exkl. moms. Vi återkommer med bekräftelse och tider.
+      </p>
     </section>
   );
 }

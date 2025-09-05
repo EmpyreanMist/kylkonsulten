@@ -1,23 +1,36 @@
 export default function Location() {
+  const mapsUrl =
+    "https://www.google.com/maps/place/Midgårdsvägen+13,+973+34+Luleå";
+  const embedSrc =
+    "https://www.google.com/maps?q=Midgårdsvägen%2013,%20973%2034%20Luleå&output=embed";
+
   return (
-    <section className="py-14">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="text-2xl md:text-3xl font-semibold">Hitta hit</h2>
-          <p className="mt-2 text-gray-700">
-            Kylakademin i Norr – Midgårdsvägen 13, Luleå
-          </p>
-          <div className="mt-4 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-gray-200">
-            {/* Byt till riktig karta vid behov. En ren frontend-iframe funkar fint: */}
-            <iframe
-              title="Karta"
-              className="w-full h-full"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=22.0%2C65.5%2C23.0%2C66.0&layer=mapnik"
-            />
-          </div>
-        </div>
+    <section className="mx-auto max-w-6xl px-4 py-10">
+      <h2 className="text-2xl font-semibold">Här finns vi</h2>
+
+      <div className="mt-3 text-gray-700">
+        <p className="font-medium">
+          Kylakademin i Norr – Midgårdsvägen 13, 973 34 Luleå
+        </p>
+        <a
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          Öppna i Google Maps
+        </a>
+      </div>
+
+      <div className="mt-4 rounded-2xl border border-gray-200 bg-white shadow-md overflow-hidden">
+        <iframe
+          title="Karta – Kylakademin i Norr"
+          src={embedSrc}
+          width="100%"
+          height="380"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </div>
     </section>
   );

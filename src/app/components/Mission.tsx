@@ -1,18 +1,18 @@
 export default function Mission() {
   return (
-    <section id="mission" className="py-14">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="rounded-3xl bg-white/70 backdrop-blur-md border border-gray-200 p-8 shadow-md">
-          <h2 className="text-2xl md:text-3xl font-semibold">Vårt uppdrag</h2>
-          <p className="mt-3 text-gray-700">
-            Vi utför praktiska och teoretiska examinationer på uppdrag av{" "}
-            <span className="font-medium">Incert</span>. Dessutom erbjuder vi
-            förberedande utbildningar (preparandkurser) för dig som vill klara
-            certifiering i kategori <span className="font-medium">1</span>,{" "}
-            <span className="font-medium">2</span> och{" "}
-            <span className="font-medium">V</span>.
-          </p>
-        </div>
+    <section className="mx-auto max-w-6xl px-4 py-10">
+      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-md">
+        <h2 className="text-2xl font-semibold">Vårt uppdrag</h2>
+        <p className="mt-3 text-gray-700">
+          Vi genomför <strong>praktiska och teoretiska examinationer</strong>{" "}
+          för kylcertifiering (Kat I–IV) <strong>på uppdrag av Incert</strong>.
+          Vi håller även <strong>preparandkurser</strong> som förbereder dig
+          inför provet – både teori och praktik.
+        </p>
+        <p className="mt-2 text-gray-700">
+          Dessutom erbjuder vi separata <strong>Säkerhetsutbildningar</strong>:
+          Heta Arbeten, Liftutbildning och Fallskydd.
+        </p>
       </div>
     </section>
   );

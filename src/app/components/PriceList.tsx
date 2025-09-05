@@ -1,87 +1,49 @@
-type Row = { title: string; days?: string; price: string; note?: string };
-
-const grund: Row[] = [
-  {
-    title: "Grundläggande kylteknikteori",
-    days: "3 dagar",
-    price: "12 000 kr + moms",
-  },
-  { title: "Kylteknik Praktisk", days: "3 dagar", price: "12 000 kr + moms" },
-  {
-    title: "Materialkunskap / Lödprov",
-    days: "2 dagar",
-    price: "3 500 kr + moms",
-  },
-];
-
-const prep: Row[] = [
-  {
-    title: "Preparandkurs – teoretiskt (Kat 1 & 2)",
-    days: "1 dag",
-    price: "9 000 kr + moms",
-  },
-  {
-    title: "Preparandkurs – praktiskt (Kat 1 & 2)",
-    days: "—",
-    price: "12 000 kr + moms",
-  },
-];
-
-const omcert: Row[] = [
-  {
-    title: "Preparandkurs / lagar (Kat 1, 2 & V)",
-    days: "1 dag",
-    price: "9 000 kr + moms",
-  },
-];
-
-function Table({ caption, rows }: { caption: string; rows: Row[] }) {
-  return (
-    <div className="rounded-3xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-      <div className="px-6 py-4 border-b border-gray-200">
-        <h3 className="text-lg font-semibold">{caption}</h3>
-      </div>
-      <div className="divide-y divide-gray-200">
-        {rows.map((r, i) => (
-          <div
-            key={i}
-            className="px-6 py-4 grid grid-cols-1 md:grid-cols-3 gap-2"
-          >
-            <div className="font-medium">{r.title}</div>
-            <div className="text-gray-600">{r.days ?? ""}</div>
-            <div className="text-gray-900">{r.price}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function PriceList() {
   return (
-    <section id="prices" className="py-14">
-      <div className="mx-auto max-w-6xl px-4">
-        <h2 className="text-2xl md:text-3xl font-semibold">Prislista</h2>
-        <p className="mt-2 text-gray-600">
-          Beroende på förkunskaper kan vi anpassa en utbildning som passar alla.
-        </p>
+    <section id="priser" className="mx-auto max-w-6xl px-4 py-10">
+      <h2 className="text-2xl font-semibold">Priser (exkl. moms)</h2>
 
-        <div className="mt-8 grid gap-6">
-          <Table caption="Grundutbildning (Kat 1 & 2)" rows={grund} />
-          <div className="rounded-2xl bg-blue-50 border border-blue-200 p-4">
-            <span className="font-medium">Paketpris (summa):</span> 27&nbsp;500
-            kr + moms
-          </div>
-          <Table
-            caption="Preparandkurs (3 dagar) – mot prov Kat 1 & 2"
-            rows={prep}
-          />
-          <Table
-            caption="Preparandkurs för omcertifiering (2 dagar)"
-            rows={omcert}
-          />
+      {/* NY: Examinationsavgifter */}
+      <div className="mt-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-md">
+        <h3 className="text-lg font-medium">Examinationsavgifter</h3>
+        <ul className="mt-3 space-y-2 text-gray-700">
+          <li>
+            • Praktiskt prov: <strong>4100 kr + moms</strong>
+          </li>
+          <li>
+            • Teoriprov: <strong>2500 kr + moms</strong>
+          </li>
+        </ul>
+      </div>
+
+      {/* Behåll dina tidigare delar om grundutbildning/preparand om du vill */}
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-md">
+          <h3 className="text-lg font-medium">Grundutbildning (Kat I & II)</h3>
+          <ul className="mt-3 space-y-1 text-gray-700">
+            <li>• Kylteknikteori 3 dagar – 12 000 kr + moms</li>
+            <li>• Kylteknik praktik 3 dagar – 12 000 kr + moms</li>
+            <li>• Materialkunskap/lödprov 2 dagar – 3 500 kr + moms</li>
+            <li className="mt-1">
+              Summa: <strong>27 500 kr + moms</strong>
+            </li>
+          </ul>
+        </div>
+
+        <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-md">
+          <h3 className="text-lg font-medium">Preparandkurser</h3>
+          <ul className="mt-3 space-y-1 text-gray-700">
+            <li>• Teoretisk preparand (1 dag) – 9 000 kr + moms</li>
+            <li>• Praktisk preparand – 12 000 kr + moms</li>
+            <li>• Omcert/lagar (1 dag) – 9 000 kr + moms</li>
+          </ul>
         </div>
       </div>
+
+      <p className="mt-4 text-sm text-gray-600">
+        * Examinationer genomförs på uppdrag av Incert. Tider och omfattning
+        enligt överenskommelse.
+      </p>
     </section>
   );
 }

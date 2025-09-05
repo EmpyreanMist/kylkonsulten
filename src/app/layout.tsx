@@ -1,8 +1,17 @@
+// app/layout.tsx
 import "./globals.css";
-export const metadata = {
-  title: "Kylakademin i Norr – Kylutbildningar & Examinationer",
+import Navbar from "./components/Navbar";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kylkonsulten i Norr AB – Kylexaminationer Kat I–IV & Preparandkurser",
   description:
-    "Praktiska och teoretiska examinationer på uppdrag av Incert. Preparandkurser för Kat 1, Kat 2 och V. Midgårdsvägen 13, Luleå.",
+    "Praktiska och teoretiska examinationer på uppdrag av Incert. Vi erbjuder även preparandkurser samt Heta Arbeten, Lift och Fallskydd.",
+  icons: {
+    icon: "/kylkonsulten.png",
+    apple: "/kylkonsulten.png",
+    shortcut: "/kylkonsulten.png",
+  },
 };
 
 export default function RootLayout({
@@ -12,7 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sv">
-      <body className="bg-[#F8FAFC] text-gray-900 antialiased">{children}</body>
+      <body className="min-h-screen bg-[#F8FAFC] text-gray-900 antialiased pt-16">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

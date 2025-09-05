@@ -1,55 +1,41 @@
-import Link from "next/link";
-
 export default function Hero() {
   return (
-    <section id="hero" className="relative">
-      <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+    <section className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
+      <div className="grid gap-6 sm:grid-cols-2 items-center">
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-            Kylutbildningar & Examinationer{" "}
-            <span className="text-blue-600">i Luleå</span>
+          <h1 className="text-3xl sm:text-4xl font-semibold leading-tight">
+            Kylexaminationer Kat I–IV & Preparandkurser
           </h1>
-          <p className="mt-4 text-gray-600">
-            Praktiska och teoretiska examinationer på uppdrag av Incert.
-            Preparandkurser för Kat&nbsp;1, Kat&nbsp;2 och V.
+          <p className="mt-4 text-gray-700">
+            Praktiska och teoretiska examinationer på uppdrag av Incert. Vi
+            erbjuder även tydliga preparandkurser inför prov.
           </p>
           <div className="mt-6 flex gap-3">
-            <Link
-              href="#prices"
-              className="rounded-2xl border border-gray-200 bg-white px-5 py-3 shadow-sm hover:shadow-md transition"
+            <a
+              href="#kontakt"
+              className="rounded-2xl px-5 py-3 bg-blue-600 text-white shadow-md"
             >
-              Se prislista
-            </Link>
-            <Link
-              href="#contact"
-              className="rounded-2xl bg-blue-600 text-white px-5 py-3 shadow-sm hover:shadow-md transition"
+              Boka / Skicka förfrågan
+            </a>
+            <a
+              href="#examinationer"
+              className="rounded-2xl px-5 py-3 border border-gray-200"
             >
-              Boka tid
-            </Link>
+              Läs mer
+            </a>
           </div>
         </div>
-        <div className="rounded-3xl bg-white/70 backdrop-blur-md border border-gray-200 p-6 shadow-md">
-          <ul className="space-y-3">
+
+        <div className="rounded-2xl border border-gray-200 p-6 bg-white shadow-md">
+          <ul className="space-y-2">
+            <li>• Kat I, Kat II, Kat III, Kat IV</li>
             <li>
-              <span className="font-semibold">Adress:</span> Midgårdsvägen 13,
-              Luleå
+              • Praktiskt prov: <strong>4100 kr + moms</strong>
             </li>
             <li>
-              <span className="font-semibold">Telefon:</span> 070-474 51 02
+              • Teoriprov: <strong>2500 kr + moms</strong>
             </li>
-            <li>
-              <span className="font-semibold">E-post:</span>{" "}
-              <a
-                href="mailto:kylakademininorr@gmail.com"
-                className="text-blue-600 underline"
-              >
-                kylakademininorr@gmail.com
-              </a>
-            </li>
-            <li>
-              <span className="font-semibold">Instruktörer:</span> Antero
-              Ala-Kojola, William Stålnacke
-            </li>
+            <li>• Säkerhetsutbildningar: Heta Arbeten, Lift, Fallskydd</li>
           </ul>
         </div>
       </div>
