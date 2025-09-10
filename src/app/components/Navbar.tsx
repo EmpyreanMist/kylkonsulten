@@ -28,8 +28,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
-        <nav className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between">
+      <header className="fixed inset-x-0 top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
+        <nav className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between text-white">
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/kylkonsulten.png"
@@ -49,8 +49,8 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`hover:underline underline-offset-4 ${
-                    pathname === item.href ? "font-medium" : ""
+                  className={`transition hover:text-blue-400 ${
+                    pathname === item.href ? "font-medium text-blue-400" : ""
                   }`}
                 >
                   {item.label}
@@ -60,7 +60,7 @@ export default function Navbar() {
           </ul>
 
           <button
-            className="sm:hidden grid place-items-center size-10 rounded-xl border border-gray-300 hover:bg-gray-50"
+            className="sm:hidden grid place-items-center size-10 rounded-xl border border-white/30 hover:bg-white/10 text-white"
             onClick={() => setOpen(true)}
             aria-label="Öppna meny"
             aria-expanded={open}
@@ -74,15 +74,15 @@ export default function Navbar() {
       {open && (
         <div id="mobile-menu" className="fixed inset-0 z-[60]">
           <div
-            className="absolute inset-0 bg-black/40"
+            className="absolute inset-0 bg-black/60"
             onClick={() => setOpen(false)}
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-white flex flex-col">
-            <div className="relative mx-auto max-w-6xl w-full px-4 h-16 flex items-center justify-center border-b border-gray-200">
+          <div className="absolute inset-0 bg-white/10 backdrop-blur-md flex flex-col text-white">
+            <div className="relative mx-auto max-w-6xl w-full px-4 h-16 flex items-center justify-center border-b border-white/20">
               <span className="font-semibold">Meny</span>
               <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 grid place-items-center size-11 rounded-2xl border border-gray-300 shadow-sm hover:bg-gray-50 active:scale-95"
+                className="absolute right-4 top-1/2 -translate-y-1/2 grid place-items-center size-11 rounded-2xl border border-white/30 shadow-sm hover:bg-white/10 active:scale-95"
                 onClick={() => setOpen(false)}
                 aria-label="Stäng meny"
                 title="Stäng"
@@ -99,15 +99,15 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`block rounded-2xl px-4 py-4 text-[17px] leading-none tracking-tight ${
+                    className={`block rounded-2xl px-4 py-4 text-[17px] leading-none tracking-tight transition ${
                       pathname === item.href
-                        ? "bg-gray-100 font-medium"
-                        : "hover:bg-gray-50"
+                        ? "bg-white/20 font-medium text-blue-400"
+                        : "hover:bg-white/10"
                     }`}
                   >
                     {item.label}
                   </Link>
-                  <div className="mx-2 border-b border-gray-200" />
+                  <div className="mx-2 border-b border-white/20" />
                 </li>
               ))}
             </ul>

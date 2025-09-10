@@ -9,7 +9,7 @@ export default function PriceList() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
         viewport={{ once: true }}
-        className="text-2xl font-semibold"
+        className="text-2xl font-semibold text-white"
       >
         Priser (exkl. moms)
       </motion.h2>
@@ -19,10 +19,10 @@ export default function PriceList() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
         viewport={{ once: true }}
-        className="mt-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition"
+        className="mt-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 shadow-md hover:bg-white/20 transition text-white"
       >
         <h3 className="text-lg font-medium">Examinationsavgifter</h3>
-        <ul className="mt-3 space-y-2 text-gray-700">
+        <ul className="mt-3 space-y-2 text-gray-200">
           <li>
             • Praktiskt prov: <strong>4100 kr + moms</strong>
           </li>
@@ -38,10 +38,10 @@ export default function PriceList() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.15 }}
           viewport={{ once: true }}
-          className="rounded-2xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg hover:border-blue-500 transition"
+          className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 shadow-md hover:bg-white/20 transition text-white"
         >
           <h3 className="text-lg font-medium">Grundutbildning (Kat I & II)</h3>
-          <ul className="mt-3 space-y-1 text-gray-700">
+          <ul className="mt-3 space-y-1 text-gray-200">
             <li>• Kylteknikteori 3 dagar – 12 000 kr + moms</li>
             <li>• Kylteknik praktik 3 dagar – 12 000 kr + moms</li>
             <li>• Materialkunskap/lödprov 2 dagar – 3 500 kr + moms</li>
@@ -56,10 +56,10 @@ export default function PriceList() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.3 }}
           viewport={{ once: true }}
-          className="rounded-2xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg hover:border-blue-500 transition"
+          className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 shadow-md hover:bg-white/20 transition text-white"
         >
           <h3 className="text-lg font-medium">Preparandkurser</h3>
-          <ul className="mt-3 space-y-1 text-gray-700">
+          <ul className="mt-3 space-y-1 text-gray-200">
             <li>• Teoretisk preparand (1 dag) – 9 000 kr + moms</li>
             <li>• Praktisk preparand – 12 000 kr + moms</li>
             <li>• Omcert/lagar (1 dag) – 9 000 kr + moms</li>
@@ -72,7 +72,7 @@ export default function PriceList() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.4 }}
         viewport={{ once: true }}
-        className="mt-4 text-sm text-gray-600"
+        className="mt-4 text-sm text-gray-300"
       >
         * Examinationer genomförs på uppdrag av Incert. Tider och omfattning
         enligt överenskommelse.

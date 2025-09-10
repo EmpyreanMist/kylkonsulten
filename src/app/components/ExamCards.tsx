@@ -18,7 +18,7 @@ export default function ExamCards() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="text-2xl font-semibold"
+        className="text-2xl font-semibold text-white"
       >
         Kylexaminationer Kat I–IV
       </motion.h2>
@@ -28,7 +28,7 @@ export default function ExamCards() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1 }}
         viewport={{ once: true }}
-        className="mt-2 text-gray-700"
+        className="mt-2 text-gray-200"
       >
         Vi examinerar praktiskt och teoretiskt. Behörighetsomfattning enligt
         gällande regelverk.
@@ -42,12 +42,12 @@ export default function ExamCards() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: i * 0.15 }}
             viewport={{ once: true }}
-            className="rounded-2xl border border-gray-200 bg-white p-6 shadow-md 
-                       hover:border-blue-500 hover:shadow-lg hover:-translate-y-1 
-                       transition-all duration-300"
+            className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 shadow-md 
+                       hover:bg-white/20 hover:-translate-y-1 
+                       transition-all duration-300 text-white"
           >
-            <h3 className="text-lg font-medium text-gray-900">{c.title}</h3>
-            <p className="mt-2 text-gray-700">{c.text}</p>
+            <h3 className="text-lg font-medium">{c.title}</h3>
+            <p className="mt-2 text-gray-200">{c.text}</p>
           </motion.div>
         ))}
       </div>

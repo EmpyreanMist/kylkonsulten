@@ -11,7 +11,7 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="rounded-3xl border border-gray-200 bg-gradient-to-r from-white to-blue-50 p-8 shadow-md flex flex-col md:flex-row items-center justify-between gap-4"
+          className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-8 shadow-md flex flex-col md:flex-row items-center justify-between gap-4 text-white hover:bg-white/20 transition"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -20,14 +20,14 @@ export default function CTA() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-semibold">Redo att boka?</h3>
-            <p className="text-gray-600 mt-1">
+            <p className="text-gray-200 mt-1">
               Säkra din plats för examination eller preparandkurs.
             </p>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="#contact"
-              className="rounded-2xl bg-blue-600 text-white px-6 py-3 shadow-sm hover:shadow-md transition"
+              href="#kontakt"
+              className="rounded-2xl bg-blue-600 text-white px-6 py-3 shadow-sm hover:bg-blue-700 hover:shadow-lg transition"
             >
               Skicka bokningsförfrågan
             </Link>

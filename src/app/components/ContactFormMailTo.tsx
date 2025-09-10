@@ -28,7 +28,7 @@ export default function ContactFormMailTo() {
   const href = `mailto:Kylakonsulteninorr@gmail.com?subject=${subject}&body=${body}`;
 
   const inputCls =
-    "rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition";
+    "rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md px-4 py-3 text-white placeholder:text-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition";
 
   return (
     <section id="kontakt" className="mx-auto max-w-6xl px-4 py-10">
@@ -37,7 +37,7 @@ export default function ContactFormMailTo() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="text-2xl font-semibold"
+        className="text-2xl font-semibold text-white"
       >
         Boka / Skicka förfrågan
       </motion.h2>
@@ -111,7 +111,7 @@ export default function ContactFormMailTo() {
         </div>
       </motion.form>
 
-      <p className="mt-3 text-sm text-gray-600">
+      <p className="mt-3 text-sm text-gray-300">
         * Priser anges exkl. moms. Vi återkommer med bekräftelse och tider.
       </p>
     </section>

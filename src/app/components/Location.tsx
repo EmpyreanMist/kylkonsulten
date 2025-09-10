@@ -14,7 +14,7 @@ export default function Location() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
         viewport={{ once: true }}
-        className="text-2xl font-semibold"
+        className="text-2xl font-semibold text-white"
       >
         Här finns vi
       </motion.h2>
@@ -24,7 +24,7 @@ export default function Location() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
         viewport={{ once: true }}
-        className="mt-3 text-gray-700"
+        className="mt-3 text-gray-200"
       >
         <p className="font-medium">
           Kylakademin i Norr – Midgårdsvägen 13, 973 34 Luleå
@@ -33,7 +33,7 @@ export default function Location() {
           href={mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:underline"
+          className="text-blue-400 hover:underline"
         >
           Öppna i Google Maps
         </a>
@@ -44,7 +44,7 @@ export default function Location() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
         viewport={{ once: true }}
-        className="mt-4 rounded-2xl border border-gray-200 bg-white shadow-md overflow-hidden"
+        className="mt-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-md overflow-hidden"
       >
         <iframe
           title="Karta – Kylakademin i Norr"
@@ -53,6 +53,7 @@ export default function Location() {
           height="380"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          className="w-full h-[380px]"
         />
       </motion.div>
     </section>

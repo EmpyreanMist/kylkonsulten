@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import DarkVeil from "./components/DarkVeil";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,9 +21,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sv">
-      <body className="min-h-screen bg-[#F8FAFC] text-gray-900 antialiased pt-16">
-        <Navbar />
-        {children}
+      <body className="min-h-screen text-gray-900 antialiased pt-16 relative">
+        <DarkVeil />
+
+        <div className="relative z-10">
+          <Navbar />
+          {children}
+        </div>
       </body>
     </html>
   );
