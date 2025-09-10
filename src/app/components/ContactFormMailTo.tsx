@@ -30,6 +30,9 @@ export default function ContactFormMailTo() {
   const inputCls =
     "rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md px-4 py-3 text-white placeholder:text-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition";
 
+  const selectCls =
+    "rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md px-4 py-3 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition";
+
   return (
     <section id="kontakt" className="mx-auto max-w-6xl px-4 py-10">
       <motion.h2
@@ -79,7 +82,7 @@ export default function ContactFormMailTo() {
         />
 
         <select
-          className={inputCls}
+          className={selectCls}
           value={form.arende}
           onChange={(e) => setForm({ ...form, arende: e.target.value })}
           aria-label="Ärende"
