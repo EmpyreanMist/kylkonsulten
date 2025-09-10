@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "framer-motion";
+
 export default function Location() {
   const mapsUrl =
     "https://www.google.com/maps/place/Midgårdsvägen+13,+973+34+Luleå";
@@ -6,9 +9,23 @@ export default function Location() {
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-10">
-      <h2 className="text-2xl font-semibold">Här finns vi</h2>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        viewport={{ once: true }}
+        className="text-2xl font-semibold"
+      >
+        Här finns vi
+      </motion.h2>
 
-      <div className="mt-3 text-gray-700">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="mt-3 text-gray-700"
+      >
         <p className="font-medium">
           Kylakademin i Norr – Midgårdsvägen 13, 973 34 Luleå
         </p>
@@ -20,9 +37,15 @@ export default function Location() {
         >
           Öppna i Google Maps
         </a>
-      </div>
+      </motion.div>
 
-      <div className="mt-4 rounded-2xl border border-gray-200 bg-white shadow-md overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="mt-4 rounded-2xl border border-gray-200 bg-white shadow-md overflow-hidden"
+      >
         <iframe
           title="Karta – Kylakademin i Norr"
           src={embedSrc}
@@ -31,7 +54,7 @@ export default function Location() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ContactFormMailTo() {
   const [form, setForm] = useState({
@@ -27,13 +28,25 @@ export default function ContactFormMailTo() {
   const href = `mailto:Kylakonsulteninorr@gmail.com?subject=${subject}&body=${body}`;
 
   const inputCls =
-    "rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500";
+    "rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder:text-gray-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition";
 
   return (
     <section id="kontakt" className="mx-auto max-w-6xl px-4 py-10">
-      <h2 className="text-2xl font-semibold">Boka / Skicka förfrågan</h2>
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="text-2xl font-semibold"
+      >
+        Boka / Skicka förfrågan
+      </motion.h2>
 
-      <form
+      <motion.form
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        viewport={{ once: true }}
         onSubmit={(e) => {
           e.preventDefault();
           window.location.href = href;
@@ -88,11 +101,15 @@ export default function ContactFormMailTo() {
         />
 
         <div className="sm:col-span-2">
-          <button className="rounded-2xl px-5 py-3 bg-blue-600 text-white shadow-md hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="rounded-2xl px-5 py-3 bg-blue-600 text-white shadow-md hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
             Skicka
-          </button>
+          </motion.button>
         </div>
-      </form>
+      </motion.form>
 
       <p className="mt-3 text-sm text-gray-600">
         * Priser anges exkl. moms. Vi återkommer med bekräftelse och tider.

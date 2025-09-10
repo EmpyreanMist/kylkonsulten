@@ -1,8 +1,32 @@
+"use client";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 function QA({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-      <h4 className="font-semibold">{q}</h4>
-      <p className="text-gray-700 mt-1">{a}</p>
+    <div
+      onClick={() => setOpen(!open)}
+      className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm cursor-pointer select-none"
+    >
+      <h4 className="font-semibold flex justify-between items-center">
+        {q}
+        <span className="text-blue-600">{open ? "−" : "+"}</span>
+      </h4>
+      <AnimatePresence>
+        {open && (
+          <motion.p
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-gray-700 mt-2"
+          >
+            {a}
+          </motion.p>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

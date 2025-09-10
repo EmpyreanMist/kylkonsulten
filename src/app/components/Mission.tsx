@@ -1,7 +1,16 @@
+"use client";
+import { motion } from "framer-motion";
+
 export default function Mission() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-10">
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-md">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.15 }}
+        viewport={{ once: true }}
+        className="rounded-2xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition"
+      >
         <h2 className="text-2xl font-semibold">Vårt uppdrag</h2>
         <p className="mt-3 text-gray-700">
           Vi genomför <strong>praktiska och teoretiska examinationer</strong>{" "}
@@ -13,7 +22,7 @@ export default function Mission() {
           Dessutom erbjuder vi separata <strong>Säkerhetsutbildningar</strong>:
           Heta Arbeten, Liftutbildning och Fallskydd.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }
