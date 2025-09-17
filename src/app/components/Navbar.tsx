@@ -12,6 +12,7 @@ const links = [
   { label: "Priser", href: "/#priser" },
   { label: "Säkerhetsutbildningar", href: "/sakerhetsutbildningar" },
   { label: "Kontakt", href: "/#kontakt" },
+  { label: "Om-oss", href: "/om-oss" },
 ];
 
 export default function Navbar() {

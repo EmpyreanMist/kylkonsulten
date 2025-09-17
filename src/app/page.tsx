@@ -9,6 +9,7 @@ import CTA from "./components/CTA";
 import FAQ from "./components/FAQ";
 import Location from "./components/Location";
 import Footer from "./components/Footer";
+import AboutPreview from "./components/AboutPreview";
 
 export default function Page() {
   return (
@@ -20,6 +21,7 @@ export default function Page() {
         <ExamCards />
         <PriceList />
         <PrepCourses />
+        <AboutPreview />
         <ContactFormMailto />
         <CTA />
         <FAQ />
