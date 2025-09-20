@@ -45,12 +45,8 @@ export default function Hero() {
         >
           <ul className="space-y-2">
             <li>• Kat I, Kat II, Kat III, Kat IV</li>
-            <li>
-              • Praktiskt prov: <strong>4100 kr + moms</strong>
-            </li>
-            <li>
-              • Teoriprov: <strong>2500 kr + moms</strong>
-            </li>
+            <li>• Praktiskt prov</li>
+            <li>• Teoriprov</li>
             <li>• Säkerhetsutbildningar: Heta Arbeten, Lift, Fallskydd</li>
           </ul>
         </motion.div>
