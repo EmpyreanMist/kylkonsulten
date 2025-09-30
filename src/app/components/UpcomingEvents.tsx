@@ -46,12 +46,10 @@ export default function UpcomingEvents() {
               onClick={() => toggle(index)}
               className="w-full flex flex-col sm:flex-row sm:justify-between sm:items-center text-left"
             >
-              {/* Titel */}
               <span className="font-semibold text-base text-white">
                 {event.title}
               </span>
 
-              {/* Datum + Pris */}
               <span className="mt-1 sm:mt-0 text-sm flex gap-4 sm:gap-6 font-medium">
                 <span className="text-white">
                   {" "}
@@ -65,7 +63,6 @@ export default function UpcomingEvents() {
               </span>
             </button>
 
-            {/* Beskrivning */}
             {openIndex === index && (
               <p className="mt-2 text-gray-300 text-sm">{event.description}</p>
             )}

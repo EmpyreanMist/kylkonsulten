@@ -1,8 +1,7 @@
 "use client";
 import { useRef, useEffect } from "react";
 import { Renderer, Program, Mesh, Triangle, Vec2 } from "ogl";
-/* import "./DarkVeil.css";
- */
+
 const vertex = `
 attribute vec2 position;
 void main(){gl_Position=vec4(position,0.0,1.0);}
@@ -117,7 +116,6 @@ export default function DarkVeil({
       const w = parent.clientWidth;
       const h = parent.clientHeight;
 
-      // Gör canvas större på höjden för mobiler
       const scaleFactor = window.innerWidth < 640 ? 1.5 : 1;
 
       renderer.setSize(w * resolutionScale, h * resolutionScale * scaleFactor);

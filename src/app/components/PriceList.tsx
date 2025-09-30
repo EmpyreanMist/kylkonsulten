@@ -9,7 +9,7 @@ type Pris = {
   kurs: string;
   pris: number;
   beskrivning: string;
-  kategori?: string; // "Examination", "Grundutbildning", "Preparand"
+  kategori?: string;
 };
 
 export default function PriceList() {
@@ -21,7 +21,6 @@ export default function PriceList() {
       .then((data) => setPriser(data));
   }, []);
 
-  // Gruppera priserna per kategori
   const grupperadePriser = priser.reduce(
     (acc: Record<string, Pris[]>, item) => {
       const kategori = item.kategori || "Övrigt";

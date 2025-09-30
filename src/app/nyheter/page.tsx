@@ -24,31 +24,31 @@ export default function NyheterPage() {
   }, []);
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-16">
-      {/* Nyheter */}
-      <h1 className="text-4xl font-bold mb-8">Nyheter</h1>
-      <section className="mb-16 space-y-6">
+    <main className="mx-auto max-w-6xl px-4 py-16 text-white">
+      <h1 className="text-4xl font-bold mb-8 text-center">Nyheter</h1>
+      <section className="mb-16 space-y-4">
         {news.length === 0 && (
-          <p className="text-gray-400">Inga nyheter publicerade än.</p>
+          <p className="text-gray-300 text-center">
+            Inga nyheter publicerade än.
+          </p>
         )}
         {news.map((n) => (
           <article
             key={n._id}
-            className="rounded-xl bg-white/10 p-6 backdrop-blur-md border border-white/20"
+            className="flex flex-col gap-1 rounded-lg border border-white/20 bg-white/5 px-4 py-3 backdrop-blur-sm"
           >
-            <h2 className="text-2xl font-semibold">{n.title}</h2>
-            <p className="text-gray-400 text-sm">
+            <h2 className="text-lg font-semibold text-white">{n.title}</h2>
+            <p className="text-xs text-gray-200">
               {new Date(n.date).toLocaleDateString("sv-SE")}
             </p>
-            <p className="mt-2">{n.body}</p>
+            <p className="text-sm text-gray-100">{n.body}</p>
           </article>
         ))}
       </section>
 
-      {/* Bildgalleri */}
-      <h2 className="text-3xl font-bold mb-6">Bildgalleri</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center">Bildgalleri</h2>
       {gallery.length === 0 && (
-        <p className="text-gray-400">Inga bilder uppladdade än.</p>
+        <p className="text-gray-300 text-center">Inga bilder uppladdade än.</p>
       )}
       <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {gallery.map((img) => (
@@ -56,7 +56,7 @@ export default function NyheterPage() {
             <img
               src={img.imageUrl}
               alt={img.title}
-              className="w-full h-48 object-cover hover:scale-105 transition"
+              className="w-full h-36 object-cover hover:scale-105 transition"
             />
           </div>
         ))}

@@ -1,6 +1,3 @@
-// -----------------------------
-// Typer för "Om oss"-sidan
-// -----------------------------
 export type Utbildare = {
   namn: string;
   beskrivning: string;
@@ -25,14 +22,11 @@ export const omOssQuery = `
   }
 `;
 
-// -----------------------------
-// Typer för utbildningstillfällen
-// -----------------------------
 export type Utbildningstillfalle = {
   _id: string;
   title: string;
   description: string;
-  date: string; // ISO-string från Sanity
+  date: string;
   price: string;
 };
 
@@ -46,9 +40,6 @@ export const utbildningstillfallenQuery = `
   }
 `;
 
-// -----------------------------
-// Typer för Nyheter
-// -----------------------------
 export type News = {
   _id: string;
   title: string;
@@ -65,9 +56,6 @@ export const allNewsQuery = `
   }
 `;
 
-// -----------------------------
-// Typer för Bildgalleri
-// -----------------------------
 export type GalleryImage = {
   _id: string;
   title: string;

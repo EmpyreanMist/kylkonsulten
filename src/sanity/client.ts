@@ -4,5 +4,5 @@ export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   apiVersion: "2025-09-20",
-  useCdn: true, // cache för snabbare laddning
+  useCdn: true,
 });

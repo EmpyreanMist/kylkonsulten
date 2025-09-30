@@ -5,7 +5,6 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 grid gap-6 sm:grid-cols-2 items-center">
-        {/* Text */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +34,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Info Box */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}

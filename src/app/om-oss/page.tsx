@@ -20,17 +20,14 @@ export default function OmOssPage() {
   return (
     <>
       <main className="mx-auto max-w-6xl px-4 py-16">
-        {/* Titel */}
         <h1 className="mb-8 text-center text-4xl font-bold text-white drop-shadow-lg">
           {data.title}
         </h1>
 
-        {/* Introtext */}
         <p className="mx-auto mb-16 max-w-3xl text-center text-lg text-gray-100 drop-shadow-md">
           {data.intro}
         </p>
 
-        {/* Utbildare */}
         <div className="grid gap-12 md:grid-cols-2">
           {data.utbildare?.map((person, i) => (
             <div
