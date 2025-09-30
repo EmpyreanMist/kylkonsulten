@@ -10,6 +10,7 @@ const links = [
   { label: "Examinationer", href: "/#examinationer" },
   { label: "Preparandkurser", href: "/#preparand" },
   { label: "Priser", href: "/#priser" },
+  { label: "Kommande utbildningar", href: "/#UpcomingEvents" },
   { label: "Kontakt", href: "/#kontakt" },
   { label: "Om-oss", href: "/om-oss" },
 ];
@@ -30,6 +31,7 @@ export default function Navbar() {
     <>
       <header className="fixed inset-x-0 top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
         <nav className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between text-white">
+          {/* Logo + namn */}
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/kylkonsulten.png"
@@ -44,6 +46,7 @@ export default function Navbar() {
             </span>
           </Link>
 
+          {/* Desktop länkar */}
           <ul className="hidden sm:flex items-center gap-5">
             {links.map((item) => (
               <li key={item.href}>
@@ -59,6 +62,7 @@ export default function Navbar() {
             ))}
           </ul>
 
+          {/* Mobile menu button */}
           <button
             className="sm:hidden grid place-items-center size-10 rounded-xl border border-white/30 hover:bg-white/10 text-white"
             onClick={() => setOpen(true)}
@@ -71,6 +75,7 @@ export default function Navbar() {
         </nav>
       </header>
 
+      {/* Mobile menu */}
       {open && (
         <div id="mobile-menu" className="fixed inset-0 z-[60]">
           <div
@@ -79,6 +84,7 @@ export default function Navbar() {
             aria-hidden="true"
           />
           <div className="absolute inset-0 bg-white/10 backdrop-blur-md flex flex-col text-white">
+            {/* Header */}
             <div className="relative mx-auto max-w-6xl w-full px-4 h-16 flex items-center justify-center border-b border-white/20">
               <span className="font-semibold">Meny</span>
               <button
@@ -93,6 +99,7 @@ export default function Navbar() {
               </button>
             </div>
 
+            {/* Links */}
             <ul className="mx-auto max-w-6xl w-full px-4 py-4 space-y-1 overflow-y-auto">
               {links.map((item) => (
                 <li key={item.href}>
@@ -112,6 +119,7 @@ export default function Navbar() {
               ))}
             </ul>
 
+            {/* CTA */}
             <div className="mt-auto mx-auto max-w-6xl w-full px-4 pb-6 pt-2">
               <Link
                 href="/#kontakt"

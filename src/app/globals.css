@@ -48,3 +48,7 @@ select option {
   color: white;
   @apply bg-gray-900 text-white;
 }
+
+html {
+  scroll-padding-top: 5rem;
+}

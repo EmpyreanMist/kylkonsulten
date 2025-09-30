@@ -19,7 +19,10 @@ export default function UpcomingEvents() {
 
   if (!events.length) {
     return (
-      <section className="mx-auto max-w-6xl px-4 py-12 text-center text-gray-100">
+      <section
+        className="mx-auto max-w-6xl px-4 py-12 text-center text-gray-100"
+        id="UpcomingEvents"
+      >
         <h2 className="text-2xl font-bold mb-4">Kommande utbildningar</h2>
         <p>Inga kommande utbildningstillfällen just nu.</p>
       </section>
@@ -31,7 +34,7 @@ export default function UpcomingEvents() {
   };
 
   return (
-    <section className="mx-auto max-w-3xl px-4 py-12">
+    <section className="mx-auto max-w-3xl px-4 py-12" id="UpcomingEvents">
       <h2 className="text-2xl font-bold text-white text-center mb-8">
         Kommande utbildningar
       </h2>
