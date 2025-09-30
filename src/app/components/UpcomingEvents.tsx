@@ -9,6 +9,7 @@ import {
 
 export default function UpcomingEvents() {
   const [events, setEvents] = useState<Utbildningstillfalle[]>([]);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   useEffect(() => {
     client
@@ -18,42 +19,56 @@ export default function UpcomingEvents() {
 
   if (!events.length) {
     return (
-      <section className="mx-auto max-w-6xl px-4 py-16 text-center text-gray-100">
-        <h2 className="text-3xl font-bold mb-6">Kommande utbildningar</h2>
+      <section className="mx-auto max-w-6xl px-4 py-12 text-center text-gray-100">
+        <h2 className="text-2xl font-bold mb-4">Kommande utbildningar</h2>
         <p>Inga kommande utbildningstillfällen just nu.</p>
       </section>
     );
   }
 
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16">
-      <h2 className="text-3xl font-bold text-white text-center mb-12">
+    <section className="mx-auto max-w-3xl px-4 py-12">
+      <h2 className="text-2xl font-bold text-white text-center mb-8">
         Kommande utbildningar
       </h2>
-      <div className="grid gap-8 md:grid-cols-2">
-        {events.map((event) => (
-          <div
-            key={event._id}
-            className="rounded-2xl bg-white/10 backdrop-blur-md p-6 shadow-lg border border-white/20"
-          >
-            <h3 className="text-2xl font-semibold text-white mb-2">
-              {event.title}
-            </h3>
-            <p className="text-gray-200 mb-4">{event.description}</p>
-            <p className="text-gray-300">
-              <span className="font-semibold">Datum:</span>{" "}
-              {new Date(event.date).toLocaleDateString("sv-SE", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
-            <p className="text-gray-300">
-              <span className="font-semibold">Pris:</span> {event.price}
-            </p>
-          </div>
+
+      <ul className="divide-y divide-gray-700 border border-gray-700 rounded-lg bg-white/5 backdrop-blur-md shadow-lg">
+        {events.map((event, index) => (
+          <li key={event._id} className="p-3">
+            <button
+              onClick={() => toggle(index)}
+              className="w-full flex flex-col sm:flex-row sm:justify-between sm:items-center text-left"
+            >
+              {/* Titel */}
+              <span className="font-semibold text-base text-white">
+                {event.title}
+              </span>
+
+              {/* Datum + Pris */}
+              <span className="mt-1 sm:mt-0 text-sm flex gap-4 sm:gap-6 font-medium">
+                <span className="text-white">
+                  {" "}
+                  {new Date(event.date).toLocaleDateString("sv-SE", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </span>
+                <span className="text-white"> {event.price}</span>
+              </span>
+            </button>
+
+            {/* Beskrivning */}
+            {openIndex === index && (
+              <p className="mt-2 text-gray-300 text-sm">{event.description}</p>
+            )}
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
