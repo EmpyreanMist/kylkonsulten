@@ -11,6 +11,7 @@ const links = [
   { label: "Preparandkurser", href: "/#preparand" },
   { label: "Priser", href: "/#priser" },
   { label: "Kommande utbildningar", href: "/#UpcomingEvents" },
+  { label: "Nyheter", href: "/nyheter" },
   { label: "Kontakt", href: "/#kontakt" },
   { label: "Om-oss", href: "/om-oss" },
 ];
