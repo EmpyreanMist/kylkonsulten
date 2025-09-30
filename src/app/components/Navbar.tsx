@@ -10,7 +10,6 @@ const links = [
   { label: "Examinationer", href: "/#examinationer" },
   { label: "Preparandkurser", href: "/#preparand" },
   { label: "Priser", href: "/#priser" },
-  { label: "Säkerhetsutbildningar", href: "/sakerhetsutbildningar" },
   { label: "Kontakt", href: "/#kontakt" },
   { label: "Om-oss", href: "/om-oss" },
 ];
