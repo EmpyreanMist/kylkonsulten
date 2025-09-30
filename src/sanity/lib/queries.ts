@@ -17,7 +17,7 @@ export const omOssQuery = `
   *[_type == "omOss"][0]{
     title,
     intro,
-    utbildare[]{
+    utbildare[] {
       namn,
       beskrivning,
       "bildUrl": bild.asset->url
@@ -43,5 +43,41 @@ export const utbildningstillfallenQuery = `
     description,
     date,
     price
+  }
+`;
+
+// -----------------------------
+// Typer för Nyheter
+// -----------------------------
+export type News = {
+  _id: string;
+  title: string;
+  body: string;
+  date: string;
+};
+
+export const allNewsQuery = `
+  *[_type == "news"] | order(date desc) {
+    _id,
+    title,
+    body,
+    date
+  }
+`;
+
+// -----------------------------
+// Typer för Bildgalleri
+// -----------------------------
+export type GalleryImage = {
+  _id: string;
+  title: string;
+  imageUrl: string;
+};
+
+export const galleryQuery = `
+  *[_type == "galleryImage"] | order(_createdAt desc) {
+    _id,
+    title,
+    "imageUrl": image.asset->url
   }
 `;
