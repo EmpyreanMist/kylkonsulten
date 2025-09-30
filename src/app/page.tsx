@@ -4,6 +4,7 @@ import Mission from "./components/Mission";
 import ExamCards from "./components/ExamCards";
 import PriceList from "./components/PriceList";
 import PrepCourses from "./components/PrepCourses";
+import UpcomingEvents from "./components/UpcomingEvents";
 import ContactFormMailto from "./components/ContactFormMailTo";
 import CTA from "./components/CTA";
 import FAQ from "./components/FAQ";
@@ -21,8 +22,11 @@ export default function Page() {
         <ExamCards />
         <PriceList />
         <PrepCourses />
-        <AboutPreview />
+
+        <UpcomingEvents />
+
         <ContactFormMailto />
+        <AboutPreview />
         <CTA />
         <FAQ />
         <Location />

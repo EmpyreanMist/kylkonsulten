@@ -1,3 +1,6 @@
+// -----------------------------
+// Typer för "Om oss"-sidan
+// -----------------------------
 export type Utbildare = {
   namn: string;
   beskrivning: string;
@@ -19,5 +22,26 @@ export const omOssQuery = `
       beskrivning,
       "bildUrl": bild.asset->url
     }
+  }
+`;
+
+// -----------------------------
+// Typer för utbildningstillfällen
+// -----------------------------
+export type Utbildningstillfalle = {
+  _id: string;
+  title: string;
+  description: string;
+  date: string; // ISO-string från Sanity
+  price: string;
+};
+
+export const utbildningstillfallenQuery = `
+  *[_type == "utbildningstillfalle" && date > now()] | order(date asc) {
+    _id,
+    title,
+    description,
+    date,
+    price
   }
 `;
