@@ -18,8 +18,8 @@ export default function OmOssPage() {
   }
 
   return (
-    <>
-      <main className="mx-auto max-w-6xl px-4 py-16">
+    <div className="flex min-h-screen flex-col">
+      <main className="flex-1 mx-auto max-w-6xl px-4 py-16">
         <h1 className="mb-8 text-center text-4xl font-bold text-white drop-shadow-lg">
           {data.title}
         </h1>
@@ -54,6 +54,6 @@ export default function OmOssPage() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
