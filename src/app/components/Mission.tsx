@@ -13,14 +13,13 @@ export default function Mission() {
       >
         <h2 className="text-2xl font-semibold">Vårt uppdrag</h2>
         <p className="mt-3 text-gray-200">
-          Vi genomför <strong>praktiska och teoretiska examinationer</strong>{" "}
-          för kylcertifiering (Kat I–IV) <strong>på uppdrag av Incert</strong>.
-          Vi håller även <strong>preparandkurser</strong> som förbereder dig
-          inför provet – både teori och praktik.
+          Som av Incert godkänt Examinationscenter utför vi praktiska och
+          teoretiska examinationer, enligt gällande lagstiftning.
         </p>
         <p className="mt-2 text-gray-200">
-          Dessutom erbjuder vi separata <strong>Säkerhetsutbildningar</strong>:
-          Heta Arbeten, Liftutbildning och Fallskydd.
+          Dessutom tillhandahåller vi preparandkurser inför proven och
+          säkerhetsutbildningar som Heta Arbeten, Höga lyft och fallskydd.
+          Självklart även andra kylutbildningar såsom Co2 etc.
         </p>
       </motion.div>
     </section>

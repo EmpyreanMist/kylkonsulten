@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="text-gray-300">CC: WSutbildningar@gmail.com</div>
         </div>
         <div>
-          <div className="font-semibold">Instruktörer</div>
+          <div className="font-semibold">Examinatörer och utbildare</div>
           <div className="text-gray-300">Antero Ala-Kojola</div>
           <div className="text-gray-300">William Stålnacke</div>
         </div>

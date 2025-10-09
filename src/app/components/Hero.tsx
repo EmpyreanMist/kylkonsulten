@@ -12,11 +12,19 @@ export default function Hero() {
           viewport={{ once: true }}
         >
           <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-white">
-            Kylexaminationer Kat I–IV & Preparandkurser
+            Kylexaminationer Kat I–IV
           </h1>
           <p className="mt-4 text-gray-200 text-lg">
-            Praktiska och teoretiska examinationer på uppdrag av Incert. Vi
-            erbjuder även tydliga preparandkurser inför prov.
+            Teoretiska och praktiska kylexaminationer på vårt av Incert godkända
+            examinationscenter. Incert är ackrediterat organ för
+            kylcertifieringar så själva certifikatet söks via:{" "}
+            <a
+              href="https://incert.se"
+              className="text-blue-600 hover:text-blue-800 underline"
+            >
+              incert.se
+            </a>{" "}
+            som även tillhandahåller information.
           </p>
           <div className="mt-6 flex gap-3">
             <a
@@ -43,8 +51,7 @@ export default function Hero() {
         >
           <ul className="space-y-2">
             <li>• Kat I, Kat II, Kat III, Kat IV</li>
-            <li>• Praktiskt prov</li>
-            <li>• Teoriprov</li>
+            <li>• Praktiskta, teoretiska och lödprov</li>
             <li>• Säkerhetsutbildningar: Heta Arbeten, Lift, Fallskydd</li>
           </ul>
         </motion.div>
