@@ -25,7 +25,7 @@ export default function ContactFormMailTo() {
     ].join("\n")
   );
 
-  const href = `mailto:kylkonsulten@gmail.com@gmail.com?subject=${subject}&body=${body}`;
+  const href = `mailto:kylkonsulteninorr@gmail.com?subject=${subject}&body=${body}`;
 
   const inputCls =
     "rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md px-4 py-3 text-white placeholder:text-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition";
