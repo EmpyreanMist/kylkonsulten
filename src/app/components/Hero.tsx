@@ -12,12 +12,12 @@ export default function Hero() {
           viewport={{ once: true }}
         >
           <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-white">
-            Kylexaminationer Kat I–IV
+            Kylcertifiering i Norr och Västerbotten
           </h1>
           <p className="mt-4 text-gray-200 text-lg">
-            Teoretiska och praktiska kylexaminationer på vårt av Incert godkända
-            examinationscenter. Incert är ackrediterat organ för
-            kylcertifieringar så själva certifikatet söks via:{" "}
+            Vi utför kylexaminationer inom I Luleå, Skellefteå och Piteå på vårt
+            av Incert godkända Examinationscenter. Incert är ackrediterat organ
+            för kylcertifieringar så själva certifikatet söks via:{" "}
             <a
               href="https://incert.se"
               className="text-blue-600 hover:text-blue-800 underline"
