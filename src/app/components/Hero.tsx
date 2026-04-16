@@ -12,7 +12,7 @@ export default function Hero() {
           viewport={{ once: true }}
         >
           <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-white">
-            Kylcertifiering i Norr och Västerbotten
+            Kylexaminationer i Norrbotten
           </h1>
           <p className="mt-4 text-gray-200 text-lg">
             Vi utför kylexaminationer inom I Luleå, Skellefteå och Piteå på vårt
