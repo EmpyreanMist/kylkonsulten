@@ -1,8 +1,18 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  defaultSiteContent,
+  type SiteContent,
+} from "@/sanity/lib/siteContent";
 
-export default function CTA() {
+type CtaContent = SiteContent["cta"];
+
+export default function CTA({
+  content = defaultSiteContent.cta,
+}: {
+  content?: CtaContent;
+}) {
   return (
     <section className="py-14">
       <div className="mx-auto max-w-6xl px-4">
@@ -19,17 +29,15 @@ export default function CTA() {
             transition={{ duration: 0.4, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold">Redo att boka?</h3>
-            <p className="text-gray-200 mt-1">
-              Säkra din plats för examination eller preparandkurs.
-            </p>
+            <h3 className="text-2xl font-semibold">{content.title}</h3>
+            <p className="text-gray-200 mt-1">{content.text}</p>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="#kontakt"
+              href={content.buttonHref}
               className="rounded-2xl bg-blue-600 text-white px-6 py-3 shadow-sm hover:bg-blue-700 hover:shadow-lg transition"
             >
-              Skicka bokningsförfrågan
+              {content.buttonLabel}
             </Link>
           </motion.div>
         </motion.div>

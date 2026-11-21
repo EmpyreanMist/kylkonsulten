@@ -1,16 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
+import {
+  defaultSiteContent,
+  type SiteContent,
+} from "@/sanity/lib/siteContent";
 
-type Card = { title: string; text: string; anchor?: string };
+type ExamCardsContent = SiteContent["exams"];
 
-const cards: Card[] = [
-  { title: "Kat I", text: "Full behörighet. Praktiskt & teoretiskt prov." },
-  { title: "Kat II", text: "Service/underhåll, viss begränsning i hantering." },
-  { title: "Kat III", text: "Läckagekontroll m.m. enligt regelverket." },
-  { title: "Kat IV", text: "Återvinning av köldmedium." },
-];
-
-export default function ExamCards() {
+export default function ExamCards({
+  content = defaultSiteContent.exams,
+}: {
+  content?: ExamCardsContent;
+}) {
   return (
     <section id="examinationer" className="mx-auto max-w-6xl px-4 py-12">
       <motion.h2
@@ -20,7 +21,7 @@ export default function ExamCards() {
         viewport={{ once: true }}
         className="text-2xl font-semibold text-white"
       >
-        Kylexaminationer Kat I–IV
+        {content.title}
       </motion.h2>
 
       <motion.p
@@ -30,12 +31,11 @@ export default function ExamCards() {
         viewport={{ once: true }}
         className="mt-2 text-gray-200"
       >
-        Vi examinerar praktiskt och teoretiskt. Behörighetsomfattning enligt
-        gällande regelverk.
+        {content.intro}
       </motion.p>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {cards.map((c, i) => (
+        {content.cards.map((c, i) => (
           <motion.div
             key={c.title}
             initial={{ opacity: 0, y: 30 }}

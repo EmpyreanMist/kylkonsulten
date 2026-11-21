@@ -1,7 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
+import {
+  defaultSiteContent,
+  type SiteContent,
+} from "@/sanity/lib/siteContent";
 
-export default function Hero() {
+type HeroContent = SiteContent["hero"];
+
+export default function Hero({
+  content = defaultSiteContent.hero,
+}: {
+  content?: HeroContent;
+}) {
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 grid gap-6 sm:grid-cols-2 items-center">
@@ -12,32 +22,32 @@ export default function Hero() {
           viewport={{ once: true }}
         >
           <h1 className="text-3xl sm:text-5xl font-bold leading-tight text-white">
-            Kylexaminationer i Norrbotten
+            {content.title}
           </h1>
           <p className="mt-4 text-gray-200 text-lg">
-            Vi utför kylexaminationer inom I Luleå, Skellefteå och Piteå på vårt
-            av Incert godkända Examinationscenter. Incert är ackrediterat organ
-            för kylcertifieringar så själva certifikatet söks via:{" "}
-            <a
-              href="https://incert.se"
-              className="text-blue-600 hover:text-blue-800 underline"
-            >
-              incert.se
-            </a>{" "}
-            som även tillhandahåller information.
+            {content.text}{" "}
+            {content.linkHref && content.linkLabel && (
+              <a
+                href={content.linkHref}
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                {content.linkLabel}
+              </a>
+            )}{" "}
+            {content.linkSuffix}
           </p>
           <div className="mt-6 flex gap-3">
             <a
-              href="#kontakt"
+              href={content.primaryCtaHref}
               className="rounded-2xl px-6 py-3 bg-blue-600 text-white shadow-md hover:bg-blue-700 hover:shadow-lg active:scale-95 transition"
             >
-              Boka / Skicka förfrågan
+              {content.primaryCtaLabel}
             </a>
             <a
-              href="#examinationer"
+              href={content.secondaryCtaHref}
               className="rounded-2xl px-6 py-3 border border-white/30 text-white hover:border-blue-400 hover:text-blue-400 transition"
             >
-              Läs mer
+              {content.secondaryCtaLabel}
             </a>
           </div>
         </motion.div>
@@ -50,9 +60,9 @@ export default function Hero() {
           className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 shadow-lg text-white"
         >
           <ul className="space-y-2">
-            <li>• Kat I, Kat II, Kat III, Kat IV</li>
-            <li>• Praktiskta, teoretiska och lödprov</li>
-            <li>• Säkerhetsutbildningar: Heta Arbeten, Lift, Fallskydd</li>
+            {content.highlights.map((item) => (
+              <li key={item}>• {item}</li>
+            ))}
           </ul>
         </motion.div>
       </div>

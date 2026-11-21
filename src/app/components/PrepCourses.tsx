@@ -1,7 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
+import {
+  defaultSiteContent,
+  type SiteContent,
+} from "@/sanity/lib/siteContent";
 
-export default function PrepCourses() {
+type PrepCoursesContent = SiteContent["prepCourses"];
+
+export default function PrepCourses({
+  content = defaultSiteContent.prepCourses,
+}: {
+  content?: PrepCoursesContent;
+}) {
   return (
     <section id="preparand" className="mx-auto max-w-6xl px-4 py-10">
       <motion.div
@@ -11,13 +21,8 @@ export default function PrepCourses() {
         viewport={{ once: true }}
         className="rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 shadow-md text-white"
       >
-        <h2 className="text-2xl font-semibold">
-          Preparandkurser inför examination
-        </h2>
-        <p className="mt-2 text-gray-200">
-          Vi erbjuder förberedande kurser i både teori och praktik så att du kan
-          känna dig trygg inför provtillfället.
-        </p>
+        <h2 className="text-2xl font-semibold">{content.title}</h2>
+        <p className="mt-2 text-gray-200">{content.text}</p>
       </motion.div>
     </section>
   );
